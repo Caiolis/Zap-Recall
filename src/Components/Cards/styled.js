@@ -20,6 +20,9 @@ export const Card = styled.div`
     justify-content: space-between;
     box-shadow: 0px 4px 5px 0px #00000026;
     margin-top: 25px;
+    &:last-child {
+        margin-bottom: 120px;
+    }
 `
 
 export const QuestionTitle = styled.h2`
