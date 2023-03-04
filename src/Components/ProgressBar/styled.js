@@ -2,13 +2,14 @@ import styled from "styled-components";
 
 export const Container = styled.div`
     width: 100%;
-    padding: 20px 0px;
+    padding: 25px 0px;
     text-align: center;
     background-color: #FFF;
     position: fixed;
     bottom: 0;
     z-index: 999;
     margin-top: 250px;
+    box-shadow: 0px -4px 6px 0px #0000000D;
 `
 
 export const Title = styled.h3`

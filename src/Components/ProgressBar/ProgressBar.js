@@ -1,9 +1,10 @@
 import { Container, Title } from './styled';
+import defaultDeck from '../../defaultDeck';
 
-export default function ProgressBar() {
+export default function ProgressBar({ progress }) {
     return (
         <Container>
-            <Title>0/4 Concluidos</Title>
+            <Title>{progress}/{defaultDeck.length} Concluidos</Title>
         </Container>
     );
 }
