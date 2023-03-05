@@ -36,7 +36,16 @@ export const FrontCard = styled.div`
     font-family: Recursive, sans-serif;
     font-weight: ${(props) => (props.showQuestion ? "400" : "700")};
     font-size: 16px;
-    color: #333;
+
+    // Changes the color of the font based if the question has been answered or not
+    // If the question has been answered checks if the answer is correct or not to set the color
+    color: ${(props) => {
+      if (!props.answered) return "#333";
+      if (props.result == "wrong") return "#FF3030";
+      if (props.result == "right") return "#2FBE34";
+      if (props.result == "middle") return "#FF922E";
+    }};
+    text-decoration: ${(props) => (props.answered ? "line-through;" : "none")};
     align-self: ${(props) => (props.showQuestion ? "flex-start;" : "none")};
   }
 `;
@@ -76,13 +85,23 @@ export const ButtonsContainer = styled.div`
     padding: 0px 10px;
   }
 `;
+
 export const ZapButton = styled.button`
   background: #2fbe34;
+  &:hover {
+    background-color: #3ddb43;
+  }
 `;
 
 export const AlmostFailButton = styled.button`
   background: #ff922e;
+  &:hover {
+    background-color: #ffa24d;
+  }
 `;
 export const FailButton = styled.button`
   background: #ff3030;
+  &:hover {
+    background-color: #ff5c5c;
+  }
 `;
