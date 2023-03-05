@@ -23,6 +23,7 @@ export default function Cards({ progress, setProgress }) {
     <Container>
       {defaultDeck.map((item, index) => (
         <DeckFront
+          key={index}
           questionIndex={index}
           questionItem={item}
           progress={progress}

@@ -7,7 +7,7 @@ export const Container = styled.div`
     background-color: #FFF;
     position: fixed;
     bottom: 0;
-    z-index: 999;
+    z-index: 2;
     margin-top: 250px;
     box-shadow: 0px -4px 6px 0px #0000000D;
 `
