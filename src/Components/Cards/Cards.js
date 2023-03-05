@@ -10,6 +10,7 @@ import {
 } from "./styled";
 import { useState } from "react";
 
+// Images for the cards
 import playButton from "../../assets/imgs/seta_play.png";
 import defaultDeck from "../../defaultDeck";
 import turnButton from "../../assets/imgs/seta_virar.png";
@@ -48,14 +49,14 @@ function DeckFront({ questionIndex, questionItem, progress, setProgress }) {
   }
 
   return (
-    <Card showQuestion={showQuestion}>
+    <Card showQuestion={showQuestion} data-test="flashcard">
       <FrontCard
         showQuestion={showQuestion}
         showAnswer={showAnswer}
         answered={answered}
         result={result}
       >
-        <h2>
+        <h2 data-test="flashcard-text">
           {showQuestion
             ? questionItem.question
             : `Pergunta ${questionIndex + 1}`}
@@ -70,6 +71,7 @@ function DeckFront({ questionIndex, questionItem, progress, setProgress }) {
                 : middleAnswer
             }
             alt="Answered button"
+            data-test={result == "right" ? "zap-icon" : result == "wrong" ? "no-icon" : "partial-icon"}
           />
         ) : (
           <img
@@ -84,17 +86,19 @@ function DeckFront({ questionIndex, questionItem, progress, setProgress }) {
                     setShowQuestion(true);
                   }
             }
+            data-test={showQuestion ? "turn-btn" : "play-btn"}
           />
         )}
       </FrontCard>
 
       <BackCard showAnswer={showAnswer}>
-        <h2>{questionItem.answer}</h2>
+        <h2 data-test="flashcard-text">{questionItem.answer}</h2>
         <ButtonsContainer>
           <FailButton
             onClick={() => {
               handleAnswer("wrong");
             }}
+            data-test="no-btn"
           >
             Não lembrei
           </FailButton>
@@ -102,6 +106,7 @@ function DeckFront({ questionIndex, questionItem, progress, setProgress }) {
             onClick={() => {
               handleAnswer("middle");
             }}
+            data-test="partial-btn"
           >
             Quase não lembrei
           </AlmostFailButton>
@@ -109,6 +114,7 @@ function DeckFront({ questionIndex, questionItem, progress, setProgress }) {
             onClick={() => {
               handleAnswer("right");
             }}
+            data-test="zap-btn"
           >
             Zap!
           </ZapButton>

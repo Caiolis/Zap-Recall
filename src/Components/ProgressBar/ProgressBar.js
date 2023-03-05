@@ -3,7 +3,7 @@ import defaultDeck from '../../defaultDeck';
 
 export default function ProgressBar({ progress }) {
     return (
-        <Container>
+        <Container data-test="footer">
             <Title>{progress}/{defaultDeck.length} Concluidos</Title>
         </Container>
     );
